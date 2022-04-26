@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 using static System.Diagnostics.Trace;
 using GDIDrawer;
 
@@ -25,6 +26,7 @@ namespace ABulletHellGame
         private CDrawer _canvas = null;
         private Timer _playerTimer = new Timer();
         private Player _p1 = null;
+        private Keys _direction;
 
         public Form1()
         {
@@ -45,12 +47,14 @@ namespace ABulletHellGame
             _playerTimer.Tick += _playerTimer_Tick;
             KeyPreview = true;
             KeyDown += Form1_KeyDown;
+            MouseClick += Form1_MouseClick;
         }
 
         private void Form1_Shown(object sender, EventArgs e)
         {
             // Set game canvas beside form window
             _canvas.Position = new Point(Location.X + Width, Location.Y);
+            Activate();
 
             // Create a new instance of player 1
             _p1 = new Player(new Point(_canvas.ScaledWidth / 2, _canvas.ScaledHeight / 2), Color.Blue, 3);
@@ -59,25 +63,37 @@ namespace ABulletHellGame
         private void _playerTimer_Tick(object sender, EventArgs e)
         {
             _canvas.Clear();
+            _p1.Move(_direction, _canvas);
             _p1.Render(_canvas);
+            if (!IsAnyKeyDown())
+                _direction = Keys.None;
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void Form1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.W:
+            _direction = e.KeyCode;
+            _p1.Move(_direction, _canvas);
+        }
 
-                    break;
-                case Keys.A:
-                    break;
-                case Keys.S:
-                    break;
-                case Keys.D:
-                    break;
-                default:
-                    break;
-            }
+        private void Form1_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            _canvas.GetLastMouseLeftClickScaled(out Point aim);
+            _p1.Shoot(aim);
+        }
+
+        /// <summary>
+        /// Checks if any key is currently being pressed.
+        /// </summary>
+        /// <returns>Returns true if a key is being pressed. Otherwise, return false.</returns>
+        private bool IsAnyKeyDown()
+        {
+            var values = Enum.GetValues(typeof(Key));
+
+            foreach (var v in values)
+                if (((Key)v) != Key.None && Keyboard.IsKeyDown((Key)v))
+                    return true;
+
+            return false;
         }
     }
 }

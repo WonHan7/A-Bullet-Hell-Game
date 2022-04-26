@@ -12,6 +12,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Diagnostics.Trace;
@@ -21,9 +22,16 @@ namespace ABulletHellGame
 {
     abstract class Entity
     {
-        protected PointF _pos { get; set; }         // Where the entity "spawns"
-        protected Color _col { get; set; }          // Color to differentiate different entities
-        protected virtual int _health { get; set; } // Life points of different entities
+        protected PointF _pos = new PointF();           // Where the entity "spawns"
+        protected Color _col;                           // Color to differentiate different entities
+        protected int _size;                            // Size of Entity
+        protected int _health;                          // Life points of different entities
+        protected int _speed;                           // Speed of Player
+
+        public virtual Color Col { get; set; }          
+        public virtual int Size { get; set; }           
+        public virtual int Health { get; set; }
+        public virtual int Speed { get; set; }
 
         public Entity(PointF pos, Color col, int health) : base()
         {
@@ -35,17 +43,17 @@ namespace ABulletHellGame
         /// <summary>
         /// Change vector of entity.
         /// </summary>
-        public void Move()
+        public void Move(Keys direction, CDrawer canvas)
         {
-            vMove();
+            vMove(direction, canvas);
         }
 
         /// <summary>
         /// Fires a projectile from entity.
         /// </summary>
-        public void Shoot()
+        public void Shoot(System.Drawing.Point aim)
         {
-            vShoot();
+            vShoot(aim);
         }
 
         /// <summary>
@@ -68,12 +76,21 @@ namespace ABulletHellGame
             return vIsDead(life);
         }
 
-        protected abstract void vMove();
+        protected abstract void vMove(Keys direction, CDrawer canvas);
 
-        protected abstract void vShoot();
+        protected virtual void vShoot(System.Drawing.Point aim)
+        {
+
+        }
 
         protected abstract void vRender(CDrawer canvas);
 
-        protected abstract bool vIsDead(int life);
+        protected virtual bool vIsDead(int life)
+        {
+            if (_health == 0)
+                return true;
+
+            return false;
+        }
     }
 }
