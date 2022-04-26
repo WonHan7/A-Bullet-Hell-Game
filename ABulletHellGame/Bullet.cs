@@ -22,18 +22,30 @@ namespace ABulletHellGame
 {
     class Bullet : Entity
     {
-        public Bullet(System.Drawing.Point pos, Color col, int health) : base(pos, col, health)
-        {
-        }
+        private System.Drawing.Point _target;  // Used to calculation the trajectory
+        protected Vector _vel;                 // Direction of Bullet
+        private double _angle;                 // Angle of Bullet trajectory
 
-        protected override void vMove(Keys direction, CDrawer canvas)
+        public Bullet(System.Drawing.PointF pos, System.Drawing.Point target, Color col, int health) : base(pos, col, health)
         {
-            throw new NotImplementedException();
+            _size = 7;
+            _speed = 10;
+            _target = target;
+            _angle = _target.X / _target.Y;
+            _vel.X = (_target.X / _angle) + _speed;
+            _vel.Y = (_target.Y / _angle) + _speed;
         }
 
         protected override void vRender(CDrawer canvas)
         {
-            throw new NotImplementedException();
+            canvas.AddEllipse((int)_pos.X, (int)_pos.Y, _size, _size, _col);
+        }
+
+        protected override void vMove(CDrawer canvas)
+        {
+            _pos.X += (float)_vel.X;
+            _pos.Y += (float)_vel.Y;
+            base.vMove(canvas);
         }
     }
 }

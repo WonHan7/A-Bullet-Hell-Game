@@ -9,3 +9,4 @@ C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\obj\D
 C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\obj\Debug\ABulletHellGame.csproj.CopyComplete
 C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\obj\Debug\ABulletHellGame.exe
 C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\obj\Debug\ABulletHellGame.pdb
+C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\obj\Debug\ABulletHellGame.Form1.resources

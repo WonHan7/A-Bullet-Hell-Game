@@ -77,5 +77,10 @@ namespace ABulletHellGame
         {
             canvas.AddEllipse((int)_pos.X, (int)_pos.Y, _size, _size, _col);
         }
+
+        protected override void vShoot(System.Drawing.Point aim)
+        {
+            base.vShoot(aim);
+        }
     }
 }
