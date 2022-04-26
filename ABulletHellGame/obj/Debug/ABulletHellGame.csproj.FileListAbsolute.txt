@@ -1,0 +1,11 @@
+C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\bin\Debug\ABulletHellGame.exe.config
+C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\bin\Debug\ABulletHellGame.exe
+C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\bin\Debug\ABulletHellGame.pdb
+C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\bin\Debug\GDIDrawer.dll
+C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\obj\Debug\ABulletHellGame.csprojAssemblyReference.cache
+C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\obj\Debug\ABulletHellGame.Properties.Resources.resources
+C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\obj\Debug\ABulletHellGame.csproj.GenerateResource.cache
+C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\obj\Debug\ABulletHellGame.csproj.CoreCompileInputs.cache
+C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\obj\Debug\ABulletHellGame.csproj.CopyComplete
+C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\obj\Debug\ABulletHellGame.exe
+C:\Users\Danny\Documents\Program - C#\gdi-bullet-hell-game\ABulletHellGame\obj\Debug\ABulletHellGame.pdb
